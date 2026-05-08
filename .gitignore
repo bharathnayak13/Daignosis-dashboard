@@ -1,0 +1,15 @@
+node_modules/
+.env
+.env.local
+dist/
+.next/
+*.log
+logs/
+uploads/reports/*
+uploads/scans/*
+uploads/documents/*
+!uploads/reports/.gitkeep
+!uploads/scans/.gitkeep
+!uploads/documents/.gitkeep
+.DS_Store
+coverage/

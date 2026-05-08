@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 99%;
+    --foreground: 220 15% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 12%;
+    --primary: 217 91% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 220 15% 12%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 220 10% 50%;
+    --accent: 210 20% 96%;
+    --accent-foreground: 220 15% 12%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 217 91% 50%;
+    --radius: 0.625rem;
+    
+    /* Custom SDC colors */
+    --sdc-blue: 217 91% 50%;
+    --sdc-teal: 174 62% 42%;
+    --sdc-green: 142 71% 45%;
+    --sdc-orange: 25 95% 53%;
+    --sdc-red: 0 84% 60%;
+    --sdc-purple: 262 80% 58%;
+  }
+
+  .dark {
+    --background: 222 25% 8%;
+    --foreground: 210 20% 92%;
+    --card: 222 25% 11%;
+    --card-foreground: 210 20% 92%;
+    --popover: 222 25% 11%;
+    --popover-foreground: 210 20% 92%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 25% 8%;
+    --secondary: 222 25% 15%;
+    --secondary-foreground: 210 20% 92%;
+    --muted: 222 25% 15%;
+    --muted-foreground: 210 10% 55%;
+    --accent: 222 25% 15%;
+    --accent-foreground: 210 20% 92%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 222 25% 18%;
+    --input: 222 25% 18%;
+    --ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .sdc-gradient {
+    background: linear-gradient(135deg, hsl(217, 91%, 50%) 0%, hsl(174, 62%, 42%) 100%);
+  }
+  
+  .sdc-card-hover {
+    @apply transition-all duration-200 hover:shadow-md hover:-translate-y-0.5;
+  }
+
+  .sdc-stat-card {
+    @apply rounded-xl border bg-card p-5 shadow-sm sdc-card-hover;
+  }
+
+  .sdc-badge-active {
+    @apply bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400;
+  }
+
+  .sdc-badge-pending {
+    @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400;
+  }
+
+  .sdc-badge-cancelled {
+    @apply bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400;
+  }
+
+  .skeleton {
+    @apply animate-pulse rounded bg-muted;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { @apply rounded-full bg-border; }
+::-webkit-scrollbar-thumb:hover { @apply bg-muted-foreground/40; }
